@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         findViewById(R.id.btnVisualization).setOnClickListener(v -> startActivity(new Intent(this, VisualisationActivity.class)));
         findViewById(R.id.btnAideDeCoach).setOnClickListener(v -> startActivity(new Intent(this, AideDeCoachActivity.class)));
         findViewById(R.id.btnReglage).setOnClickListener(v -> startActivity(new Intent(this, ReglageActivity.class)));

@@ -5,7 +5,9 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.format.Formatter;
 
-public class WifiUtil {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class WifiUtil extends AppCompatActivity {
 
     // Méthode pour récupérer l'adresse IPv4 WiFi
     public static String getWifiIpv4Address(Context context) {

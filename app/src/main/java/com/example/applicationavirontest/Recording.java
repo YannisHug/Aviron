@@ -1,4 +1,6 @@
 package com.example.applicationavirontest;
 
-public class Recording {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Recording extends AppCompatActivity {
 }
