@@ -1,0 +1,15 @@
+<resources>
+    <!-- Définition des couleurs manquantes -->
+    <color name="purple_500">#9C27B0</color>  <!-- Couleur violette -->
+    <color name="purple_700">#7B1FA2</color>  <!-- Couleur violette foncée -->
+    <color name="white">#FFFFFF</color>        <!-- Blanc -->
+    <color name="teal_200">#80CBC4</color>    <!-- Teal clair -->
+    <color name="teal_700">#00695C</color>    <!-- Teal foncé -->
+    <color name="black">#000000</color>       <!-- Noir -->
+    <color name="purple_200">#D1C4E9</color>  <!-- Couleur violette plus claire -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aviron"
+        android:textSize="28sp"
+        android:textColor="#3D5AFE"
+        android:textStyle="bold"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Visualization Button -->
+    <Button
+        android:id="@+id/btnVisualization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visualisation des données"
+        android:backgroundTint="#FF6F00"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp"/>
+
+    <!-- Aide de Coach Button -->
+    <Button
+        android:id="@+id/btnAideDeCoach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aide au coaching"
+        android:backgroundTint="#00C853"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/btnVisualization"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Base de données Button -->
+    <Button
+        android:id="@+id/btnBasededonnees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Base de données"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAideDeCoach"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Réglages Button -->
+    <Button
+        android:id="@+id/btnReglage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réglages"
+        android:backgroundTint="#3D5AFE"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBasededonnees"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Deconnexion Button -->
+    <Button
+        android:id="@+id/btnDeconnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deconnexion"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/btnReglage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

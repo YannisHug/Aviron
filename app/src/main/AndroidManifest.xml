@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.applicationavirontest">
+    <!-- Permissions nécessaires -->
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Permission pour Android 10+ si besoin de Wi-Fi (API 29 ou supérieur) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Mon Application"
+        android:theme="@style/AppTheme">
+
+        <!-- MainActivity définie comme activité de lancement -->
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Autres activités -->
+        <activity android:name=".MainActivity"
+            android:exported="true" />
+        <activity android:name=".VisualisationActivity"
+            android:exported="false" />
+        <activity android:name=".AideDeCoachActivity"
+            android:exported="false" />
+        <activity android:name=".ReglageActivity"
+            android:exported="false" />
+        <activity android:name=".BasededonneesActivity"
+            android:exported="false" />
+        <activity android:name=".CreateAccountActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
