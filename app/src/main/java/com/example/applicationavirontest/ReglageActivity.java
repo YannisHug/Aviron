@@ -1,7 +1,13 @@
 package com.example.applicationavirontest;
 
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +25,7 @@ public class ReglageActivity extends AppCompatActivity {
 
         // Initialisation des éléments de la vue
         btnEnregistrer = findViewById(R.id.btn_enregistrer);
-        btnSelectTxt = findViewById(R.id.btn_select_txt;
+        btnSelectTxt = findViewById(R.id.btn_select_txt);
 
         wifiStatus = findViewById(R.id.wifi_status);
         sensor1Status = findViewById(R.id.sensor1_status);
@@ -30,10 +36,11 @@ public class ReglageActivity extends AppCompatActivity {
         sensorScrollView = findViewById(R.id.sensor_scroll_view);
 
         // Gestion du bouton "Connecter"
-        btnConnect.setOnClickListener(new View.OnClickListener() {
+        btnEnregistrer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                connectToWifi();
+                Intent intent = new Intent(ReglageActivity.this, Recording.class);
+                startActivity(intent);
             }
         });
     }
