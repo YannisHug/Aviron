@@ -20,11 +20,9 @@
         android:layout_marginBottom="16dp" />
 
     <!-- Zone de connexion au partage de connexion -->
-
-    <!-- Boutons Connexion / Enregistrer -->
     <LinearLayout
         android:id="@+id/connection_buttons"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/title"
@@ -32,13 +30,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
 
-
         <Button
             android:id="@+id/btn_enregistrer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Commencer à enregistrer"
-            android:layout_marginStart="16dp" />
+            android:text="Commencer à ENREGISTRER"
+            android:layout_marginBottom="8dp" /> <!-- Ajout de marge -->
+
+        <Button
+            android:id="@+id/btn_stop_enregistrer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STOPPER L'ENREGISTREMENT" />
+
     </LinearLayout>
 
     <!-- Statut WiFi -->
