@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 public class VisualisationActivity extends AppCompatActivity {
@@ -22,13 +24,22 @@ public class VisualisationActivity extends AppCompatActivity {
         textViewData = findViewById(R.id.textViewData);
 
         // Lire et afficher les données du fichier "data.txt"
-        readDataFromAssets();
+        readDataFromInternalStorage();
     }
 
-    private void readDataFromAssets() {
+    private void readDataFromInternalStorage() {
         try {
-            // Ouverture du fichier "data.txt" depuis le dossier assets
-            BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("data.txt")));
+            // Chemin complet vers le fichier dans le dossier de fichiers internes
+            File file = new File(getFilesDir(), "data.txt"); //donnees_{Port du capteur}.txt pour récupérer les données du capteurs considéré
+
+            // Vérifiez si le fichier existe
+            if (!file.exists()) {
+                Toast.makeText(this, "Fichier non trouvé", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Ouverture du fichier pour la lecture
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             StringBuilder content = new StringBuilder();
             String line;
 

@@ -97,7 +97,7 @@
                     android:id="@+id/sensor1_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Capteur 1\nStatut : Déconnecté\nCalibration : Non calibré\nPort : 12345"
+                    android:text="Capteur 1\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
                     android:textColor="@android:color/holo_red_dark" />
             </LinearLayout>
 
@@ -114,7 +114,7 @@
                     android:id="@+id/sensor2_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Capteur 2\nStatut : Déconnecté\nCalibration : Non calibré\nPort : 12346"
+                    android:text="Capteur 2\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
                     android:textColor="@android:color/holo_red_dark" />
             </LinearLayout>
 
@@ -131,7 +131,7 @@
                     android:id="@+id/sensor3_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Capteur 3\nStatut : Déconnecté\nCalibration : Non calibré\nPort : 12347"
+                    android:text="Capteur 3\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
                     android:textColor="@android:color/holo_red_dark" />
             </LinearLayout>
 
@@ -148,7 +148,7 @@
                     android:id="@+id/sensor4_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Capteur 4\nStatut : Déconnecté\nCalibration : Non calibré\nPort : 12348"
+                    android:text="Capteur 4\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
                     android:textColor="@android:color/holo_red_dark" />
             </LinearLayout>
 

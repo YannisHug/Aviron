@@ -38,13 +38,11 @@
             android:exported="false" />
         <activity android:name=".CreateAccountActivity"
             android:exported="false" />
-        <service android:name=".TcpServerService" />
+        <service android:name=".MultiTcpServerService" />
         <activity android:name=".WifiUtil"
             android:exported="false" />
         <activity android:name=".Recording"
             android:exported="false" />
-
-
     </application>
 
 </manifest>
