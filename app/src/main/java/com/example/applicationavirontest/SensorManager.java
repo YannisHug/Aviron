@@ -44,4 +44,5 @@ public class SensorManager {
     public List<SensorStatus> getAllSensors() {
         return new ArrayList<>(sensors);
     }
+
 }
