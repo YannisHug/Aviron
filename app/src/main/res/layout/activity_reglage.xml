@@ -86,70 +86,106 @@
 
             <!-- Capteur 1 -->
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EFEFEF"
                 android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/sensor1_status"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Capteur 1\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
-                    android:textColor="@android:color/holo_red_dark" />
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_calibrate_sensor1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calibrer" />
             </LinearLayout>
 
             <!-- Capteur 2 -->
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EFEFEF"
                 android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
-                <TextView
+
+            <TextView
                     android:id="@+id/sensor2_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Capteur 2\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
-                    android:textColor="@android:color/holo_red_dark" />
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_calibrate_sensor2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calibrer" />
+
             </LinearLayout>
 
             <!-- Capteur 3 -->
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EFEFEF"
                 android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/sensor3_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Capteur 3\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
-                    android:textColor="@android:color/holo_red_dark" />
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_calibrate_sensor3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calibrer" />
+
             </LinearLayout>
 
             <!-- Capteur 4 -->
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EFEFEF"
                 android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/sensor4_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Capteur 4\nStatut : Déconnecté\nCalibration : Non calibré\nPort : "
-                    android:textColor="@android:color/holo_red_dark" />
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_calibrate_sensor4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calibrer" />
+
             </LinearLayout>
 
         </LinearLayout>

@@ -1,48 +1,49 @@
 package com.example.applicationavirontest;
 
+import android.util.Log;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SensorManager {
-    private List<SensorStatus> sensors;
+    private List<Sensor> sensors = new ArrayList<>();
 
-    public SensorManager() {
-        this.sensors = new ArrayList<>();
+    public List<Sensor> getSensors() {
+        return new ArrayList<>(sensors);
     }
 
-    public void addSensor(SensorStatus sensor) {
+    public void addSensor(Sensor sensor) {
         sensors.add(sensor);
     }
 
-    public SensorStatus getSensorByPort(int port) {
-        for (SensorStatus sensor : sensors) {
-            if (sensor.getPort() == port) {
+    public void removeSensor(Sensor sensor) {
+        sensors.remove(sensor);
+    }
+
+    public Sensor findSensorById(String id) {
+        for (Sensor sensor : sensors) {
+            if (sensor.getId().equals(id)) {
                 return sensor;
             }
         }
-        return null; // Retourne null si aucun capteur n'est trouvé pour ce port
+        return null;
     }
 
-    public List<SensorStatus> getSensors() {
-        return sensors;
-    }
-
-    public void setSensorConnected(int port, boolean isConnected) {
-        SensorStatus sensor = getSensorByPort(port);
-        if (sensor != null) {
-            sensor.setConnected(isConnected);
-        }
-    }
-
-    public void setSensorCalibrated(int port, boolean isCalibrated) {
-        SensorStatus sensor = getSensorByPort(port);
-        if (sensor != null) {
-            sensor.setCalibrated(isCalibrated);
-        }
-    }
-
-    public List<SensorStatus> getAllSensors() {
-        return new ArrayList<>(sensors);
+    public void sendCommandToSensor(String command, Socket sensorSocket) {
+        new Thread(() -> {
+            try {
+                PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(sensorSocket.getOutputStream())), true);
+                writer.println(command);
+                writer.flush();
+            } catch (IOException e) {
+                Log.e("SensorManager", "Error sending command: " + e.getMessage(), e);
+            }
+        }).start();
     }
 
 }

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.applicationavirontest">
-    <!-- Permissions nécessaires -->
 
+    <!-- Permissions nécessaires -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <!-- Permission pour Android 10+ si besoin de Wi-Fi (API 29 ou supérieur) -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -39,14 +40,17 @@
             android:exported="false" />
         <activity android:name=".CreateAccountActivity"
             android:exported="false" />
-        <service
-            android:name=".TcpServerService"
-            android:enabled="true"
-            android:exported="false" />
         <activity android:name=".WifiUtil"
             android:exported="false" />
         <activity android:name=".Recording"
             android:exported="false" />
-    </application>
 
+        <!-- Déclaration du service avec les permissions nécessaires -->
+        <service
+            android:name=".TcpServerService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:foregroundServiceType="dataSync"
+            tools:ignore="ForegroundServicePermission" />
+
+    </application>
 </manifest>
