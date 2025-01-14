@@ -51,3 +51,38 @@ Voici une description des principaux fichiers et dossiers de ce dépôt :
    ```bash
    git clone https://github.com/YannisHug/Aviron.git
    cd Aviron
+
+   ---
+
+## Jalon 1
+
+### 1. Structure initiale de l'application
+
+La première étape a consisté à établir les dépendances entre les différentes pages de l'application. À ce stade, l'objectif était de structurer l'application de manière fonctionnelle sans entrer dans les détails des fonctionnalités spécifiques. Cela a permis de poser les bases et d'assurer une navigation fluide entre les écrans principaux.
+
+### 2. Focus sur la page de connexion
+
+- Mise en place d'une **page de connexion** pour permettre l'accès à l'application.
+- Création d'une page optionnelle pour **la création de compte**, facilitant l'inscription des utilisateurs.
+- Gestion des **identifiants et mots de passe**, stockés de manière sécurisée dans un fichier texte local à la tablette. Chaque coach dispose ainsi de ses propres données spécifiques.
+
+### 3. Focus sur la section "Réglages"
+
+- Développement des **fonctionnalités de connexion avec les capteurs** via des boutons dédiés.
+- Création d'un **service TCP Server** pour gérer les connexions réseau.
+- Mise en place d'une **classe TcpClientHandler** pour gérer les connexions des clients.
+- Conception d'une **classe SensorManager** permettant de différencier et de gérer les 4 capteurs utilisés dans l'application.
+
+### 4. Application en fonctionnement
+
+Lors du lancement de l'application, l'utilisateur suit le parcours suivant :
+
+1. **Page de Connexion** : L'utilisateur arrive sur la première activité où il peut se connecter à son compte ou en créer un nouveau.
+2. **Page Principale (MainActivity)** : Une fois connecté, l'utilisateur accède à la page principale qui lui permet de naviguer vers plusieurs sections :
+    - **Réglages** : Permet de connecter, calibrer les capteurs et enregistrer les données.
+    - **Visualisation des données** : Offre un accès aux données enregistrées pour une consultation détaillée.
+    - **Coaching** : Fournit des outils et ressources pour accompagner l'utilisateur dans ses activités.
+    - **Base de données** : Permet de consulter ou de gérer les données stockées dans l'application.
+  
+### Finis le 14/01/2025 😊
+
