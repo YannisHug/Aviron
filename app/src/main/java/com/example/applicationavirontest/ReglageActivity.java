@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import java.net.Socket;
 import java.util.List;
 
 public class ReglageActivity extends AppCompatActivity {
@@ -98,6 +99,8 @@ public class ReglageActivity extends AppCompatActivity {
 
         btnStopEnregistrer.setOnClickListener(v -> {
             if (intentConnection != null) {
+                // Déconnecte tous les clients et arrête le++ service
+                tcpServerService.disconnectAllClients();
                 stopService(intentConnection);
                 intentConnection = null;
             } else {
@@ -106,54 +109,41 @@ public class ReglageActivity extends AppCompatActivity {
         });
 
         btnCalibrer1.setOnClickListener(v -> {
-            if (tcpServerService != null) {
-                SensorManager sensorManager = tcpServerService.getSensorManager();
-                // Exemple d'ID pour le capteur 1 (adapter selon votre logique d'ID)
-                String sensorId = "capteur1";
-                sensorManager.sendCommandToSensor("CALIBRAGE", sensorManager.findSensorById(sensorId).getSocket());
-            } else {
-                Toast.makeText(this, "Le service n'est pas actif", Toast.LENGTH_SHORT).show();
-            }
+            handleCalibration("capteur1", "Commande de calibrage envoyée au capteur 1");
         });
 
         btnCalibrer2.setOnClickListener(v -> {
-            if (tcpServerService != null) {
-                SensorManager sensorManager = tcpServerService.getSensorManager();
-                // Exemple d'ID pour le capteur 1 (adapter selon votre logique d'ID)
-                String sensorId = "capteur2";
-                sensorManager.sendCommandToSensor("CALIBRAGE", sensorManager.findSensorById(sensorId).getSocket());
-                Toast.makeText(this, "Commande de calibrage envoyée au capteur 2", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Le service n'est pas actif", Toast.LENGTH_SHORT).show();
-            }
+            handleCalibration("capteur2", "Commande de calibrage envoyée au capteur 2");
         });
 
         btnCalibrer3.setOnClickListener(v -> {
-            if (tcpServerService != null) {
-                SensorManager sensorManager = tcpServerService.getSensorManager();
-                // Exemple d'ID pour le capteur 1 (adapter selon votre logique d'ID)
-                String sensorId = "capteur3";
-                sensorManager.sendCommandToSensor( "CALIBRAGE", sensorManager.findSensorById(sensorId).getSocket());
-                Toast.makeText(this, "Commande de calibrage envoyée au capteur 3", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Le service n'est pas actif", Toast.LENGTH_SHORT).show();
-            }
+            handleCalibration("capteur3", "Commande de calibrage envoyée au capteur 3");
         });
 
         btnCalibrer4.setOnClickListener(v -> {
-            if (tcpServerService != null) {
-                SensorManager sensorManager = tcpServerService.getSensorManager();
-                // Exemple d'ID pour le capteur 1 (adapter selon votre logique d'ID)
-                String sensorId = "capteur4";
-                sensorManager.sendCommandToSensor("CALIBRAGE", sensorManager.findSensorById(sensorId).getSocket());
-                Toast.makeText(this, "Commande de calibrage envoyée au capteur 4", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Le service n'est pas actif", Toast.LENGTH_SHORT).show();
-            }
+            handleCalibration("capteur4", "Commande de calibrage envoyée au capteur 4");
         });
-        // Lier le service
-        Intent intent = new Intent(this, TcpServerService.class);
-        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+    }
+    // Méthode pour gérer le calibrage
+    private void handleCalibration(String sensorId, String successMessage) {
+        if (tcpServerService != null) {
+            SensorManager sensorManager = tcpServerService.getSensorManager();
+            Sensor sensor = sensorManager.findSensorById(sensorId);
+
+            if (sensor != null) {
+                Socket socket = sensor.getClientSocket();
+                if (socket != null && !socket.isClosed()) {
+                    sensorManager.sendCommandToSensor("CALIBRAGE", socket);
+                    Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Le socket du capteur est fermé ou invalide", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Capteur introuvable : " + sensorId, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Le service n'est pas actif", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void updateSensorStatus(int sensorNumber, String newStatus) {

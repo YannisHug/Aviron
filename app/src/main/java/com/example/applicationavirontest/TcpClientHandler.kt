@@ -33,15 +33,17 @@ class TcpClientHandler(
                 }
             }
 
-            // Boucle principale : traitement des données envoyées après l'initialisation
             while (!clientSocket.isClosed) {
                 if (clientSocket.inputStream.available() > 0) {
                     val message = input.readLine()
                     if (!message.isNullOrEmpty()) {
-                        writeDataToFile(fileName, message) // Écriture des données dans le fichier
+                        if (message == "DISCONNECT") {
+                            Log.i(TAG, "Client requested disconnection")
+                            break // Sort de la boucle pour fermer le socket
+                        }
+                        writeDataToFile(fileName, message)
                     }
                 } else {
-                    // Attente active pour éviter une boucle rapide
                     Thread.sleep(100)
                 }
             }
@@ -94,6 +96,20 @@ class TcpClientHandler(
             Log.e(TAG, "Error writing to file $fileName", e)
         }
     }
+    /**
+     * Ferme correctement les soket lors de la deconnexion
+     */
+    fun closeClientSocket() {
+        try {
+            if (!clientSocket.isClosed) {
+                clientSocket.close()
+                Log.i(TAG, "Client socket closed successfully")
+            }
+        } catch (e: IOException) {
+            Log.e(TAG, "Error closing client socket: ${e.message}", e)
+        }
+    }
+
 
     companion object {
         private val TAG = TcpClientHandler::class.java.simpleName

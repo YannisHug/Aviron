@@ -3,27 +3,33 @@ package com.example.applicationavirontest;
 import java.net.Socket;
 
 public class Sensor {
-    public enum StatutConnexion {
-        CONNECTE, DECONNECTE;
-    }
-    public enum StatutCalibration {
-        CALIBRE, NON_CALIBRE;
-    }
-
     private String id;
     private StatutConnexion statutConnexion;
     private StatutCalibration statutCalibration;
     private String port;
-    private Socket socket;
+    private Socket clientSocket;
 
-    public Sensor(String id, StatutConnexion statutConnexion, StatutCalibration statutCalibration, String port, Socket socket) {
+    // Enums pour les statuts
+    public enum StatutConnexion {
+        CONNECTE,
+        NON_CONNECTE
+    }
+
+    public enum StatutCalibration {
+        CALIBRE,
+        NON_CALIBRE
+    }
+
+    // Constructeur
+    public Sensor(String id, StatutConnexion statutConnexion, StatutCalibration statutCalibration, String port, Socket clientSocket) {
         this.id = id;
         this.statutConnexion = statutConnexion;
         this.statutCalibration = statutCalibration;
         this.port = port;
-        this.socket = socket;
+        this.clientSocket = clientSocket;
     }
 
+    // Getters et setters
     public String getId() {
         return id;
     }
@@ -56,11 +62,11 @@ public class Sensor {
         this.port = port;
     }
 
-    public Socket getSocket() {
-        return socket;
+    public Socket getClientSocket() {
+        return clientSocket;
     }
 
-    public void setSocket(Socket socket) {
-        this.socket = socket;
+    public void setClientSocket(Socket clientSocket) {
+        this.clientSocket = clientSocket;
     }
 }

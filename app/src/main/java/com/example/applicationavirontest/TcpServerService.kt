@@ -70,6 +70,8 @@ class TcpServerService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        working.set(true)
+        serverSocket = null
         startForegroundService()
         Thread(serverRunnable).start()
     }
@@ -104,6 +106,20 @@ class TcpServerService : Service() {
                 .setCategory(Notification.CATEGORY_SERVICE)
                 .build()
             startForeground(1, notification)
+        }
+    }
+
+    fun disconnectAllClients() {
+        threadPool.shutdownNow() // Arrête toutes les tâches en cours dans le pool
+        sensorManager.getSensors().forEach { sensor ->
+            sensor.getClientSocket()?.let {
+                try {
+                    it.close()
+                    Log.i(TAG, "Closed socket for sensor ${sensor.getId()}")
+                } catch (e: IOException) {
+                    Log.e(TAG, "Error closing socket for sensor ${sensor.getId()}", e)
+                }
+            }
         }
     }
 
